@@ -31,7 +31,7 @@ public class leetCode {
 //            }
 //            newEmails.add(subStr[0] + "@" + subStr[1]);
             //var2
-            int atIndex = email.indexOf("@");
+            int atIndex =  email.indexOf("@");
             int plusIndex = email.indexOf("+");
             String str1;
             if (plusIndex >= 0) str1 = email.substring(0, plusIndex);
