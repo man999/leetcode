@@ -1,5 +1,3 @@
-import java.nio.charset.Charset;
-import java.util.ArrayList;
 import java.util.HashSet;
 import java.util.Set;
 
@@ -35,7 +33,7 @@ public class leetCode {
             //var2
             int atIndex = email.indexOf("@");
             int plusIndex = email.indexOf("+");
-            String str1 = "";
+            String str1;
             if (plusIndex >= 0) str1 = email.substring(0, plusIndex);
             else str1 = email.substring(0, atIndex);
             str1 = str1.replaceAll("\\.", "") + email.substring(atIndex);
