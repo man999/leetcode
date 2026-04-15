@@ -1,22 +1,24 @@
-import java.util.HashSet;
-import java.util.Set;
+import java.util.*;
 
 public class leetCode {
     public static void main(String[] args) {
         //#1295
-        //System.out.println(findNumbers(new int[]{12, 345, 2, 6, 7896}));
+//        System.out.println(findNumbers(new int[]{12, 345, 2, 6, 7896}));
         //#9
-        //System.out.println(isPalindrome(121));
+//        System.out.println(isPalindrome(121));
         //#66
-        //System.out.println(Arrays.toString(plusOne(new int[]{9})));
+//        System.out.println(Arrays.toString(plusOne(new int[]{9})));
         //#1480
-        //System.out.println(Arrays.toString(runningSum(new int[]{1, 2, 3, 4})));
+//        System.out.println(Arrays.toString(runningSum(new int[]{1, 2, 3, 4})));
         //929
-        System.out.println(numUniqueEmails(new String[]{
-            "test.email+alex@leetcode.com",
-            "test.e.mail+bob.cathy@leetcode.com",
-            "testemail+david@lee.tcode.com"}
-        ));
+//        System.out.println(numUniqueEmails(new String[]{
+//                "test.email+alex@leetcode.com",
+//                "test.e.mail+bob.cathy@leetcode.com",
+//                "testemail+david@lee.tcode.com"}
+//        ));
+        //1
+//        System.out.println(Arrays.toString(twoSum(new int[]{2, 7, 11, 15}, 9)));
+        //
     }
 
     public static int numUniqueEmails(String[] emails) {
@@ -53,7 +55,7 @@ public class leetCode {
     }
 
     public static int[] plusOne(int[] digits) {
-        //var1
+        //my var
 //        int step = 1;
 //        for (int i = digits.length - 1; i >= 0; i--) {
 //            int num = digits[i] + step;
@@ -70,7 +72,7 @@ public class leetCode {
 //            digits[0] = step;
 //        }
 //        return digits;
-        //var2
+        //best var
         for (int i = digits.length - 1; i >= 0; i--) {
             if (digits[i] == 9) {
                 digits[i] = 0;
@@ -86,7 +88,7 @@ public class leetCode {
 
     public static boolean isPalindrome(int x) {
         if (x < 0) return false;
-        //var1
+        //my var
 //        boolean res = true;
 //        char[] chars = Integer.toString(x).toCharArray();
 //        for (int i = 0, j = chars.length-1; i < chars.length-1; i++, j--) {
@@ -96,7 +98,7 @@ public class leetCode {
 //            }
 //        }
 //        return res;
-        //var2
+        //best var
         int num = x;
         int rev = 0;
         while (num != 0) {
@@ -110,10 +112,10 @@ public class leetCode {
     public static int findNumbers(int[] nums) {
         int res = 0;
         for (int num : nums) {
-            //var1
+            //my var
 //      String str = Integer.toString(num);
 //      if (str.length() % 2 == 0) res++;
-            //var2
+            //best var
             int rem = 0;
             while (num > 0) {
                 num = num / 10;
@@ -123,5 +125,27 @@ public class leetCode {
         }
         //var2
         return res;
+    }
+
+    public static int[] twoSum(int[] nums, int target) {
+        //my var
+        for (int i = 0; i < nums.length - 1; i++) {
+            for (int j = i + 1; j < nums.length; j++) {
+                if (nums[i] + nums[j] == target) {
+                    return new int[]{i, j};
+                }
+            }
+        }
+        return null;
+        //best var
+//        Map<Integer,Integer> map = new HashMap<>();
+//        for(int i=0;i<nums.length;i++){
+//            int compl=target-nums[i];
+//            if(map.containsKey(compl)){
+//                return new int[]{map.get(compl),i};
+//            }
+//            map.put(nums[i],i);
+//        }
+//        return null;
     }
 }
