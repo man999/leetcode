@@ -18,7 +18,15 @@ public class leetCode {
 //        ));
         //1
 //        System.out.println(Arrays.toString(twoSum(new int[]{2, 7, 11, 15}, 9)));
-        //
+        //2
+        LinkedList<Integer> ll = new LinkedList<>();
+        ll.add(2);
+        ll.add(4);
+        ll.add(3);
+//        ListNode l1 = addNode(2, 4, 3);
+//        ListNode l2 = addNode(5, 6, 4);
+//        ListNode res = addTwoNumbers(ListNode l1, ListNode l2);
+//        for (ListNode n : res)
     }
 
     public static int numUniqueEmails(String[] emails) {
@@ -127,6 +135,7 @@ public class leetCode {
         return res;
     }
 
+    //1
     public static int[] twoSum(int[] nums, int target) {
         //my var
         for (int i = 0; i < nums.length - 1; i++) {
@@ -147,5 +156,29 @@ public class leetCode {
 //            map.put(nums[i],i);
 //        }
 //        return null;
+    }
+
+    //2
+//     Definition for singly-linked list.
+    public class ListNode {
+        int val;
+        ListNode next;
+
+        ListNode() {
+        }
+
+        ListNode(int val) {
+            this.val = val;
+        }
+
+        ListNode(int val, ListNode next) {
+            this.val = val;
+            this.next = next;
+        }
+    }
+
+    //
+    public ListNode addTwoNumbers(ListNode l1, ListNode l2) {
+        return null;
     }
 }
