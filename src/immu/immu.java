@@ -20,7 +20,7 @@ void main() {
     almostMutable.getFieldMap().keySet().forEach(e -> System.out.println(e));
 }
 
-public class AlmostMutableClass {
+public final class AlmostMutableClass {
     private String field;
     private Map<String, String> fieldMap;
 
