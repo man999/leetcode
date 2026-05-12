@@ -1,14 +1,6 @@
 void main() {
-    System.out.println("test string");
-    String str = "key1";
-    Map<String,String> map1 = new HashMap<>();
-
-    map1.put(str, "value1");
-    System.out.println("map1 value for key = "+str+": "+map1.get(str));
-    str = "key2";
-    map1.put(str, "value2");
-    str = new String("key1");
-    System.out.println("all map1:");
-    map1.entrySet().forEach(e -> System.out.println(e));
-    System.out.println("map1 value for key = "+str+": "+map1.get(str));
+    BigDecimal v1 = new BigDecimal("2.123");
+    BigDecimal v2 = new BigDecimal("2.123");
+    BigDecimal v3 = v1.add(v2);
+    System.out.println(v3);
 }
