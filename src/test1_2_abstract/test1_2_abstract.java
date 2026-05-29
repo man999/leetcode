@@ -1,20 +1,14 @@
-public static class Shape {
-    private double volume;
+import java.util.ArrayList;
 
-    public Shape(double volume) {
-        this.volume = volume;
-    }
-
-    public double getVolume() {
-        return volume;
-    }
+abstract class Shape {
+    public abstract double getVolume();
 }
 
-public static class SolidOfRevolution extends Shape {
-    private double radius;
 
-    public SolidOfRevolution(double volume, double radius) {
-        super(volume);
+abstract class SolidOfRevolution extends Shape {
+    protected double radius;
+
+    public SolidOfRevolution(double radius) {
         this.radius = radius;
     }
 
@@ -23,39 +17,54 @@ public static class SolidOfRevolution extends Shape {
     }
 }
 
-public static class Pyramid extends Shape {
+class Pyramid extends Shape {
     private double square;
     private double height;
 
     public Pyramid(double square, double height) {
-        super(square * height * 4 / 3);
         this.square = square;
         this.height = height;
     }
-}
 
-public static class Ball extends SolidOfRevolution {
-    public Ball(double radius) {
-        super(Math.PI * Math.pow(radius, 3) * 4 / 3, radius);
+    @Override
+    public double getVolume() {
+        return square * height * 4 / 3;
     }
 }
 
-public static class Cylinder extends SolidOfRevolution {
+class Ball extends SolidOfRevolution {
+    public Ball(double radius) {
+        super(radius);
+    }
+
+    @Override
+    public double getVolume() {
+        return Math.PI * Math.pow(radius, 3) * 4 / 3;
+    }
+}
+
+class Cylinder extends SolidOfRevolution {
     private double height;
 
     public Cylinder(double radius, double height) {
-        super(Math.PI * radius * radius * height, radius);
+        super(radius);
         this.height = height;
+    }
+
+    @Override
+    public double getVolume() {
+        return Math.PI * radius * radius * height;
     }
 }
 
-public static class Box extends Shape {
+class Box extends Shape {
     private ArrayList<Shape> shapes = new ArrayList<>();
     private double available;
+    private double volume;
 
     public Box(double available) {
-        super(available);
         this.available = available;
+        this.volume = available;
     }
 
     public boolean add(Shape shape) {
@@ -66,6 +75,10 @@ public static class Box extends Shape {
         } else {
             return false;
         }
+    }
+    @Override
+    public double getVolume() {
+        return volume;
     }
 
     public ArrayList<Shape> getShapes() {
